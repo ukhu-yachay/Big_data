@@ -8,7 +8,7 @@ class aplicacionmapreduce(MRJob):
 				reducer=self.reducer_count_score)
 		]
 	def mapper_get_score(self, _, line):
-		(review_id, order_id, review_score, review_comment_title, review_comment_message, review_creation_date, review_answer_timestamp) = line.split(",")
+		(review_id, order_id, review_score, review_comment_title, review_comment_message, review_creation_date, review_answer_timestamp) = line.split(";")
 		yield review_score, 1
 		
 	def reducer_count_score(self, key, values):
